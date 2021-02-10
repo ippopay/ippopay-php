@@ -2,6 +2,7 @@
     "name": "ippopay/ippopay",
     "description": "Ippopay PHP Client Library",
     "type": "library",
+    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +10,7 @@
             "email": "info@ippopay.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {        
     }
 }
