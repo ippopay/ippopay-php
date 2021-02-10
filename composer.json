@@ -1,0 +1,16 @@
+{
+    "name": "ippopay/ippopay",
+    "description": "Ippopay PHP Client Library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ippopay",
+            "email": "info@ippopay.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "rmccue/requests": "v1.7.0"
+    }
+}
