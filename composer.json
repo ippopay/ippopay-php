@@ -2,7 +2,7 @@
     "name": "ippopay/ippopay",
     "description": "Ippopay PHP Client Library",
     "type": "library",
-    "version": "dev-master",
+    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -11,5 +11,11 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "repositories": [
+        {
+            "type": "path",
+            "url": "https://github.com/ippopay/ippopay-php.git"
+        }
+    ]
 }
