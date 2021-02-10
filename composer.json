@@ -11,7 +11,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": { "ippopay/ippopay" : "dev-master" },
     "repositories": [
         {
             "type": "path",
