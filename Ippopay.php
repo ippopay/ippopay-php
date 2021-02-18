@@ -4,7 +4,7 @@
  * @license https://github.com/ippopay MIT License
  * @author  Ippopay
  *
- * @version 1.0.2
+ * @version 1.0.0
  */
 if (class_exists('Requests') === false)
 {
