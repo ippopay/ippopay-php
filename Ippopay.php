@@ -1,12 +1,10 @@
 <?php
 /**
  * IppoPay Order API Library * 
- * @license https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt MIT License
- * @author  Serban Ghita <serbanghita@gmail.com>
- * @author  Nick Ilyin <nick.ilyin@gmail.com>
- * Original author: Victor Stanciu <vic.stanciu@gmail.com>
+ * @license https://github.com/ippopay MIT License
+ * @author  Ippopay
  *
- * @version 2.8.35
+ * @version 1.0.0
  */
 if (class_exists('Requests') === false)
 {
