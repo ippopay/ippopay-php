@@ -1,12 +1,10 @@
 <?php
 /**
  * IppoPay Order API Library * 
- * @license https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt MIT License
- * @author  Serban Ghita <serbanghita@gmail.com>
- * @author  Nick Ilyin <nick.ilyin@gmail.com>
- * Original author: Victor Stanciu <vic.stanciu@gmail.com>
+ * @license https://github.com/ippopay MIT License
+ * @author  Ippopay
  *
- * @version 2.8.35
+ * @version 1.0.2
  */
 if (class_exists('Requests') === false)
 {
@@ -14,44 +12,50 @@ if (class_exists('Requests') === false)
     Requests::register_autoloader();
 }
 
-class IP_Order
+try
 {
-    protected static $publickey = null;
+    Requests::register_autoloader();
 
-    protected static $secretkey = null;
-
-    private static $attributes = array();
-
-    private static $headers = array();
-
-    protected static $orderId = null;
-
-    public function __construct($publickey, $secretkey)
+    if (version_compare(Requests::VERSION, '1.6.0') === -1)
     {
-        self::$publickey = $publickey;
-        self::$secretkey = $secretkey;
-    }
-
-    public static function getPublicKey()
-    {
-        return self::$publickey;
-    }
-
-    public static function getSecretKey()
-    {
-        return self::$secretkey;
-    }
-
-    public static function createOrder($attributes = array())
-    {
-        $headers = array('Content-Type' => 'application/json');
-        $response = Requests::post('https://'.self::$publickey.':'.self::$secretkey.'@api.ippopay.com/v1/order/create', $headers, json_encode($attributes));
-        return $response->body;
-    }
-
-    public static function orderDetails($orderId)
-    {
-        $response = Requests::get('https://'.self::$publickey.':'.self::$secretkey.'@api.ippopay.com/v1/order/'.$orderId.'/transaction');
-        return $response->body;
+        throw new Exception('Requests class found but did not match');
     }
 }
+catch (\Exception $e)
+{
+    throw new Exception('Requests class found but did not match');
+}
+
+spl_autoload_register(function ($class)
+{
+    // project-specific namespace prefix
+    $prefix = 'Ippopay\IPOrder';
+
+    // base directory for the namespace prefix
+    $base_dir = __DIR__;
+
+    // does the class use the namespace prefix?
+    $len = strlen($prefix);
+
+    if (strncmp($prefix, $class, $len) !== 0)
+    {
+        // no, move to the next registered autoloader
+        return;
+    }
+
+    // get the relative class name
+    $relative_class = substr($class, $len);
+
+    //
+    // replace the namespace prefix with the base directory,
+    // replace namespace separators with directory separators
+    // in the relative class name, append with .php
+    //
+    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+    // if the file exists, require it
+    if (file_exists($file))
+    {
+        require $file;
+    }
+});
