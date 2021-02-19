@@ -1,6 +1,7 @@
 <?php
 
 namespace Ippopay\IPOrder;
+use Requests;
 
 class IPOrder
 {
