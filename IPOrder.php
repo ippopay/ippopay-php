@@ -1,7 +1,7 @@
 <?php
 
 namespace Ippopay\IPOrder;
-
+use Requests;
 class IPOrder
 {
     protected static $publickey = null;
