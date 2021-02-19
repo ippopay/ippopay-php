@@ -17,5 +17,10 @@
             "type": "path",
             "url": "https://github.com/ippopay/ippopay-php.git"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ippopay\\IPOrder\\": "/"
+        }
+    }
 }
